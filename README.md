@@ -1,17 +1,17 @@
-About
+關於 About
 ===
 
 Breakout is a prototyping tool for exploring the intersection of the web and the physical world. The popular [Arduino](http://arduino.cc) platform and the [Firmata](http://firmata.org) protocol are leveraged to enable users to access physical input and output purely from javascript. This makes it easy for anyone familiar with javascript and basic web development to explore the possibilities of using sensors and actuators in their web applications. Furthermore, the Breakout framework includes a growing library of hardware abstractions such as buttons, leds, servo motors, accelerometers, gyros, etc enabling the user to easily interface with a range of sensors and actuators using just a few lines of javascript code.
 
-![](http://breakoutjs.com/wp-content/uploads/2012/02/how_breakout_works.png)
+![](http://blog.davidou.org/wp-content/uploads/2015/04/BREAKOUT-%E9%81%8B%E4%BD%9C.png)
 
 Breakout grew out of a need for a simple platform to enable designers to prototype functional web-based interfaces to the physical world. It is based largely on the [Funnel](http://funnel.cc) toolkit and informed by the experiences of the developers of both Funnel and Breakout as designers, technologists and educators.
 
-Breakout is currently beta software. The API is stable, but bugs are possible. Please submit an issue if you suspect a bug.
+Breakout 現在還是 beta 板軟體.雖然 The API 已經穩定，但是還是有可能有bug發生. 如果你發現bug請回報.
 
-See [breakoutjs.com](http://breakoutjs.com) for detailed documentation and other helpful information.
+更多細部的文件請看 [breakoutjs.com](http://breakoutjs.com) 或其他的資料來源
 
-Example
+範例 Example
 ---
 
 ```html
@@ -49,75 +49,75 @@ Example
 </html>
 ```
 
-Quick Start
+快速安裝 Quick Start
 ---
 
-See the detailed [Getting Started guide](http://breakoutjs.com/getting-started/) or the quickstart guide below.
+你可以在 [Getting Started guide](http://breakoutjs.com/getting-started/) 這邊找到詳細的手冊
 
-The first step is to upload **AdvancedFirmata** to your Arduino (or Arduino-compatible) board and wire up some components:
+第一步是上傳 **AdvancedFirmata** 到你的 Arduino板 (或 Arduino-compatible) 並連接你要的感測器或元件
 
-1. After downloading or cloning Breakout, navigate to `Breakout/firmware/AdvancedFirmata/` and open AdvancedFirmata.ino in the Arduino IDE (version 1.0 or higher is required, version 1.5.4 or higher is recommended).
-2. Compile *AdvancedFirmata* for your board and upload.
-3. Wire up a button, led and potentiometer to your I/O board as illustrated on page 3 in [Breakout/examples/schematics.pdf](http://breakoutjs.com/examples/schematics.pdf).
+1. 在下載或是複製好 Breakout 後, 進入 `Breakout/firmware/AdvancedFirmata/` 並且在你的Arduino IDE軟體上打開 AdvancedFirmata.ino (需要 version 1.0 或更高的版本,建議 version 1.5.4 或更高).
+2. Compile *AdvancedFirmata* 上傳至你的版子上
+3. 在你的板上接好你的按鈕, led 和 可變電阻器 像第三頁一樣  [Breakout/examples/schematics.pdf](http://breakoutjs.com/examples/schematics.pdf).
 
-The next step is to run the Breakout Server application:
+下一步驟是去啟動 Breakout Server :
 
-1. Make sure your I/O board is attached and the *AdvancedFirmata* sketch is uploaded. 
-2. You'll find **Breakout Server** for your platform (mac, win or linux) in `Breakout/server/`. Unzip and open the folder for your platform and launch the application. **Mac OS X users** may need to [temporarily disable Gatekeeper](https://answers.uchicago.edu/page.php?id=25481) to launch the app for the first time. Note: Linux users may need to run ```sudo apt-get install librxtx-java``` or manually install the librxtxSerial.so driver before launching the BreakoutServer.jar application.
-3. Select the serial port for your board from the drop-down if it is not the current port displayed.
-4. If your firewall is enabled, make sure port 8887 is open (or enter a new port that is open).
-5. Click the Connect button. You should see the message "Server running on: [your server name]: 8887/" followed by "Connected to IOBoard on: [serial port name]".
-6. Open [http://localhost:8887/examples/index.html](http://localhost:8887/examples/index.html) in Chrome (v14 or greater), Firefox (v11 or greater), or Safari (v5 or greater) and try the Getting Started examples. Note that if you changed the network port in step 4, you will need to update the 2nd parameter of the IOBoard constructor to the new port number.
+1. 請確定你的板子接好了，並且把 *AdvancedFirmata* 燒錄進來了. 
+2. 你可以在你的(mac, win or linux)找到 **Breakout Server** ，解壓縮並且打開軟體 **Mac OS X 使用者** 第一次可能需要 [temporarily disable Gatekeeper](https://answers.uchicago.edu/page.php?id=25481) 去啟動你的APP. Note: Linux users may need to run ```sudo apt-get install librxtx-java``` or manually install the librxtxSerial.so driver before launching the BreakoutServer.jar application.
+3. 選好你的serial port .
+4. 如果你的防火牆是開的，請確定你的port 8887 可以通過(或找一個可以過的PORT).
+5. 按下 Connect 按鈕. 你應該會看到 "Server running on: [your server name]: 8887/" 這個訊息在"Connected to IOBoard on: [serial port name]"之後.
+6. 用瀏覽器打開 [http://localhost:8887/examples/index.html](http://localhost:8887/examples/index.html) 建議 Chrome (v14 or greater), Firefox (v11 or greater), or Safari (v5 or greater) 並且可以玩看範例.備註: 如果你在第四步驟有變更PORT的話，你可能需要更新一下你IO板(ARDUINO)上的PORT號.
 
 **Note OS X Mavericks users:** You will need to disable the Mavericks App Nap feature for Breakout Server. Right-click on the Breakout Server icon then select Get Info. Check the `Prevent App Nap` box under the General section in the info panel.
 
-You can also interact with the examples on your smartphone or tablet as long as your mobile browser supports websockets (Safari, Chrome for Android, Firefox Mobile). Instead of `localhost:8887/examples/` enter the IP address or hostname of the computer running Breakout Server (`192.168.2.1:8887/examples/` or `yourhostname.local:8887/examples/`u). Also make sure your mobile device is connected to the same wi-fi network as the computer running the Breakout Server application.
+如果你的智慧手機或是平板有支援websockets的話，你也可以使用 (Safari, Chrome for Android, Firefox Mobile). Instead of `localhost:8887/examples/` 輸入你有跑Breakout Server電腦的ip或是名稱   (`192.168.2.1:8887/examples/` or `yourhostname.local:8887/examples/`u). 當你的電腦在跑Breakout Server 軟體時 請確定你的行動裝置已經連上了某些WIFI網路.
 
-For more information on using Breakout Server including enabling multiple client connections, changing the webserver root directory, enabling auto start mode, or using Breakout with mobile devices, see [Using Breakout Server](http://breakoutjs.com/using-breakout-server/).
+想要更多使用 Breakout Server的資訊(包含多重CLIENT連線，變更webserver root 資料夾,啟用自動執行模式,或者透過手機使用Breakout) 請參閱 [Using Breakout Server](http://breakoutjs.com/using-breakout-server/).
 
 As an alternative to the Breakout Server application, a node.js-based server is also included. See the [Using the node.js server](https://github.com/soundanalogous/Breakout/wiki/Using-the-node.js-server) for details.
 
 
-Requirements
+需求 Requirements
 ---
 
-Breakout is only supported for Arduino 1.0 and higher [Download Arduino](http://arduino.cc/en/Main/Software).
+Breakout 只支援 for Arduino 1.0 或更高的版本 [Download Arduino](http://arduino.cc/en/Main/Software).
 
-You will need one of the following I/O boards:
+你需要一個下列的 I/O 板:
 
-- An Arduino version Diecimila or newer (Uno, Fio, Mega, Pro, LilyPad, Leonardo, Due, etc). 
+- 一個 Arduino version Diecimila or newer (Uno, Fio, Mega, Pro, LilyPad, Leonardo, Due, 等等). 
 - [Teensy 2.0](http://www.pjrc.com/teensy/), Teensy 3.0, Teensy++ 1.0 or 2.0
-- Many Arduino clones / variants should also work.
-- See [Test Environment](https://github.com/soundanalogous/Breakout/wiki/Test-Environment) for full list of tested I/O boards.
+- 各種的 Arduino 相似板 --山寨板-- 應該也可以執行.
+- 可以從 [Test Environment](https://github.com/soundanalogous/Breakout/wiki/Test-Environment) 找到所有測試過的 I/O boards.
 
 *In order to use Breakout with an Arduino Leonardo, Arduino Due or Teensy 3.0 board, you need to install [Arduino 1.5.4](http://arduino.cc/en/Main/Software) or higher.
 
-OS:
+作業系統 OS:
 
 - Mac OS X 10.6 or higher
-- Windows 8, 7 or XP ([Java JRE 1.6 or greater required to run Breakout Server](http://www.java.com/en/download/index.jsp))
+- Windows 8, 7 or XP ([執行 Breakout Server需要Java JRE 1.6 或更高的版本](http://www.java.com/en/download/index.jsp))
 - Has been tested successfuly on Ubuntu 11.10 running in 64-bit mode on an x86-64 processor
-- May work on older versions of OS X and Windows as well but has not been tested
+- 大部分古老的 OS X 和 Windows 也可以 但是沒測試過
 - May work on other Linux distributions but has not been tested
 
-Desktop Browsers:
+瀏覽器 Desktop Browsers:
 
-- Chrome version 14 or higher
-- Firefox version 11 or higher
-- Safari version 5 or higher
-- Opera 12 or higher
+- Chrome version 14 或更高
+- Firefox version 11 或更高
+- Safari version 5 或更高
+- Opera 12 或更高
 
-Mobile Browsers (browser must support websockets):
+手機瀏覽器 Mobile Browsers (browser must support websockets):
 
 - Safari mobile
-- Firefox mobile version 7 or higher
-- Chrome for Android (for Android 4.0 and higher)
-- See [Test Environment](https://github.com/soundanalogous/Breakout/wiki/Test-Environment) for list of tested phones and tablets
+- Firefox mobile version 7 或更高
+- Chrome for Android (for Android 4.0 或更高)
+- 請參閱 [Test Environment](https://github.com/soundanalogous/Breakout/wiki/Test-Environment) 有完整測試過的手機與平板列表
 
-Contributing
+投稿 Contributing
 ---
-Contributions are welcome. If you have any ideas, suggestions for improvements, 
-examples to share, or anything else you'd like to contribute please get in touch.
+如果你有任何想法、建議與改進的話，歡迎來貢獻, 
+請與我們分享案例或是任何理想貢獻的東西.
 
 To contribute, fork Breakout and create a feature branch off the `dev` branch.
 Submit pull requests against the `dev` branch for bug fixes and small changes. For any
@@ -128,12 +128,12 @@ See [Breakout/build/README.md](https://github.com/soundanalogous/Breakout/blob/m
 
 Credits
 ---
-Breakout is developed by [Jeff Hoefs](http://jeffhoefs.com).
+Breakout 是由 [Jeff Hoefs](http://jeffhoefs.com)所開發的.
 
-Breakout is based on the as3 library of [Funnel](http://funnel.cc). 
-The author is also a contributor to the Funnel as3 library.
+Breakout 是基於 as3 library of [Funnel](http://funnel.cc). 
+作者也是 Funnel as3 library的貢獻者.
 
-Logo and icon designed by Claire Lin.
+Logo 與圖示由Claire Lin設計.
 
 Breakout Server uses [webbit](https://github.com/webbit/webbit)
 
@@ -142,7 +142,7 @@ Contributors:
 - [Fabian Affolter](https://github.com/fabaff)
 - [Xavier Seignard](https://github.com/xseignard)
 
-License
+版權 License
 ---
 Breakout is distributed under the terms of the MIT License. See the [LICENSE](https://raw.github.com/soundanalogous/Breakout/master/LICENSE) file.
 
